@@ -1,0 +1,15 @@
+---
+attack_technique: T1561
+display_name: 'Disk Destruction'
+atomic_tests:
+- name: Disk encryption using Bitlocker to simulate data destruction using living off the land
+  description: |-
+    Encrypts the primary hard disk using Bitlocker. A successful reboot will keep the user from logging into the system as the password is saved on the local drive.
+    https://github.com/rschwass/scripts/blob/master/bitlocker_ransom.ps1(This code)
+    https://docs.microsoft.com/en-us/powershell/module/bitlocker/add-bitlockerkeyprotector?view=win10-ps
+    https://docs.microsoft.com/en-us/windows/security/information-protection/bitlocker/bitlocker-use-bitlocker-drive-encryption-tools-to-manage-bitlocker
+  supported_platforms:
+  - windows
+  executor:
+    command: powershell.exe .\T1561.ps1
+    name: powershell
